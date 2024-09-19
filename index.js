@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const https = require('https');
 const fs = require('fs');
-const express = require('express');
 
 const options = {
   key: fs.readFileSync('/etc/letsencrypt/live/mybackend.duckdns.org/privkey.pem'),
