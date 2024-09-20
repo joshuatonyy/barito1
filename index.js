@@ -23,8 +23,6 @@ mongoose
   })
   .then((result) => {
     app.listen(process.env.PORT, () => {
-      console.log(`Server is listening at port: ${process.env.PORT}`);
-      console.log(`Server is listening at port: ${process.env.MONGO_DB_URL}`)
     });
   })
   .catch((err) => console.log("err", err));
