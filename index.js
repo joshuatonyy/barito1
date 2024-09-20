@@ -1,15 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const https = require('https');
-const fs = require('fs');
-
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/mybackend.duckdns.org/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/mybackend.duckdns.org/cert.pem'),
-  ca: fs.readFileSync('/etc/letsencrypt/live/mybackend.duckdns.org/chain.pem')
-};
-
 dotenv.config();
 const app = express();
 const bookingRoutes = require("./routes/booking");
@@ -31,8 +22,9 @@ mongoose
     useNewUrlParser: true,
   })
   .then((result) => {
-    https.createServer(options, app).listen(process.env.PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log(`Server is listening at port: ${process.env.PORT}`);
+      console.log(`Server is listening at port: ${process.env.MONGO_DB_URL}`)
     });
   })
   .catch((err) => console.log("err", err));
