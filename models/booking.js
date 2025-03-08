@@ -13,6 +13,7 @@ const bookingSchema = new Schema({
     required: true,
   },
   bookingStatus: String,
+  phoneNumber: String
 });
 // export the model
 module.exports = mongoose.model("bookings", bookingSchema);

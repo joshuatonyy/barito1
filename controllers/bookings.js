@@ -6,6 +6,7 @@ exports.addBooking = (req, res, next) => {
     start: req.body.start,
     end: req.body.end,
     bookingStatus: req.body.bookingStatus,
+    phoneNumber: req.body.phoneNumber
   });
 
   // save the instance to the database
